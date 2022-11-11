@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        label,
+        input {
+            display: block;
+        }
+
+        button {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <label for="fname">First Name:</label>
+    <input id="fname" type="text">
+    <label for="lname">Last Name:</label>
+    <input id="lname" type="text">
+    <button>Submit</button>
+</body>
+<script src="jqueryfiles/jquery-3.6.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+        function fun1(){
+            var f=$("#fname").val();
+            var l=$("#lname");
+            if(f.length==0||l.val().length==0)
+            return true;
+           return false; 
+        }
+        $("button").click(function () {
+            if(fun1())
+            alert("please fill all the fields")
+            });
+        });
+
+</script>
+
+</html>

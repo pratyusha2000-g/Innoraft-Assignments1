@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            color: white;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        header,footer{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* text-align: center; */
+
+            height: 10vh;
+            background-color: skyblue;
+        }
+        .headercolor{
+            background-color: blueviolet;
+        }
+        footer{
+            background-color: orange;
+        }
+        #container{
+            display: flex;
+            height:79vh;
+            margin:10px 0px 10px 0px;
+            /* background-color: rgb(52, 178, 52); */
+        }
+
+        #left{
+            padding-top: 30px;
+            display: flex; 
+            justify-content: center;
+            width: 25%;
+            background-color: palegreen;
+            margin: 0px 10px 0px 0px;
+        }
+        #right{
+            display: flex;
+            flex-direction: column;
+            width: 75%;
+            /* background-color: rgb(255, 4, 88); */
+            margin: 0px 0px 0px 10px;
+        }
+        #up{
+            padding-top: 30px;
+            display: flex; 
+            justify-content: center;
+            height: 80%;
+            background-color: yellow;
+            margin-bottom: 5px;
+        }
+        #down{
+            display: flex; 
+            justify-content: center;
+            align-items: center;
+            height: 20%;
+            background-color: gray;
+            margin-top: 5px;
+        }
+        #popup{
+            position: absolute;
+            height: 102vh;
+            width: 100%;
+            top: 0px;
+            background-color: rgba(4, 4, 4, 0.681);
+            display: none;
+        }
+        #popup #btn{
+            height: 5%;
+        }
+        #popup div button{
+            position: absolute;
+            right: 30px;
+            font-weight: bolder;
+            font-size: 30px;
+            height: 10px;
+            width: 10px;
+            background-color: rgba(240, 248, 255, 0);
+        }
+        #popup div{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #popup #para{
+           height: 95%;
+           text-align: center;
+           padding: auto auto;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div>
+    <header><span>Header</span></header>
+    <div id="container">
+    <div id="left"> <span>Sidebar</span></div>
+    <div id="right">
+        <div id="up"><span>Main Content</span></div>
+        <div id="down"><span>Extra Content</span></div>
+    </div>
+    </div>
+    <footer><span>Footer</span></footer>
+</div>
+    <div id="popup">
+        <div id="btn"><button>X</button></div>
+        <div id="para">
+        <h1>I AM A POPUP</h1>
+    </div>
+    </div>
+</div>
+</body>
+<script src="jqueryfiles/jquery-3.6.1.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $("header").click(function(){
+            $(this).addClass("headercolor");
+        });
+        $("#left").click(function(){
+            $("#left span").text("leftbar");
+        });
+        $("#right #down").click(function(){
+            $("#up").fadeOut("slow");
+        });
+        $("footer").click(function(){
+            $("#popup").fadeIn("fast");
+        });
+        $("#btn").click(function(){
+            $("#popup").fadeOut("fast");
+        })
+    });
+</script>
+</html>
